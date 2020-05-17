@@ -54,6 +54,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${spring.boot.mainclass}</mainClass>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.gmavenplus</groupId>
@@ -76,5 +79,19 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>client</id>
+			<properties>
+				<spring.boot.mainclass>org.arunm.springwebfluxrestservice.client.ReactiveClientApplication</spring.boot.mainclass>
+			</properties>
+		</profile>
+		<profile>
+			<id>service</id>
+			<properties>
+				<spring.boot.mainclass>org.arunm.springwebfluxrestservice.webservice.ReactiveServiceApplication</spring.boot.mainclass>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
