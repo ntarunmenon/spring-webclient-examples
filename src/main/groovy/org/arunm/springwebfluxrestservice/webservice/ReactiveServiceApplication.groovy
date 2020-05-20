@@ -37,11 +37,11 @@ class ReactiveServiceApplication {
 
     @PostMapping("/event")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(@RequestBody Event event) {
+    void add(@RequestBody Event event) {
         println "got event: $event"
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(ReactiveServiceApplication)
     }
 }
